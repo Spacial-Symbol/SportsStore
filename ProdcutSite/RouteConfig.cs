@@ -7,6 +7,7 @@ namespace ProdcutSite
     {
         public static void RegisterRoutes(RouteCollection routes)
         {
+            //this is done by gaurav Uniyal
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
             routes.MapRoute(null,"",
                             // Only matches the empty URL (i.e. /) 
