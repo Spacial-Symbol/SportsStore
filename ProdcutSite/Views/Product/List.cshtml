@@ -1,0 +1,35 @@
+﻿@using ProdcutSite.HtmlHelpers
+@model ProdcutSite.Models.ProductsListViewModel
+@{
+    ViewBag.Title = "Products";
+}
+<h2>
+    Products of Spacial Symbol
+</h2>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@foreach (var p in Model.Products)
+{
+    Html.RenderPartial("ProductSummary", p);
+}
+@*@foreach (var p in Model.Products)
+{
+    <div class="item">
+        <h3>
+            @p.Name
+        </h3>
+        <h3>
+            @p.Description
+        </h3>
+        <h4>
+            @p.Price.ToString("C")
+        </h4>
+        <h4>
+            @p.Catagory
+        </h4>
+    </div>
+}*@
+<div class="pager">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x  , catagory  = Model.CurrentCatagory}))
+</div>
